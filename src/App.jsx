@@ -10,7 +10,7 @@ const App = () => {
         },
     ]);
     return (
-        <div>
+        <div className="min-h-screen">
             <Header />
             <RouterProvider router={appRouter} />
         </div>
