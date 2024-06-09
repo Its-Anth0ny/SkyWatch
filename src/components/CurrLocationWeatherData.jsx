@@ -46,10 +46,10 @@ const CurrLocationWeatherData = () => {
                 <p className="flex items-center justify-center text-3xl font-bold gap-x-2 max-sm:text-xl max-sm:gap-x-1">
                     <MapPin /> {data.city.name}
                 </p>
-                <p className="flex text-lg text-gray-600 max-md:flex-col max-sm:text-sm md:gap-x-2">
+                <div className="flex text-lg text-gray-600 max-md:flex-col max-sm:text-sm md:gap-x-2">
                     <p>Date: {date},</p>
                     <p>Time: {time}</p>
-                </p>
+                </div>
             </div>
             <div className="space-y-4">
                 {data.list.map((item) => (
