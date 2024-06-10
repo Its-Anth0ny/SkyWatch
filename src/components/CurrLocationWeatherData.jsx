@@ -27,7 +27,7 @@ const CurrLocationWeatherData = () => {
     if (error) {
         return (
             <div className="h-[200px] flex items-center justify-center text-red-500">
-                {error}
+                Something went wrong. Please try again.
             </div>
         );
     }
@@ -57,7 +57,7 @@ const CurrLocationWeatherData = () => {
                         key={item.dt}
                         className="p-4 border border-gray-200 rounded-lg max-smx:p-4"
                     >
-                        <div className="grid grid-cols-1 gap-4 smx:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        <div className="grid grid-cols-1 gap-4 smx:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xsx:text-sm">
                             <div className="max-smx:flex max-smx:justify-between">
                                 <p className="font-medium">Temperature:</p>
                                 <p>{item.main.temp}°C</p>
@@ -66,18 +66,21 @@ const CurrLocationWeatherData = () => {
                                 <p className="font-medium">Weather:</p>
                                 <p>{item.weather[0].description}</p>
                             </div>
-                            <div className="max-smx:flex max-smx:justify-between">
+                            {/* <div className="max-smx:flex max-smx:justify-between">
                                 <p className="font-medium">Feels Like:</p>
                                 <p>{item.main.feels_like}°C</p>
-                            </div>
+                            </div> */}
                             <div className="max-smx:flex max-smx:justify-between">
-                                <p className="font-medium">Min Temp:</p>
-                                <p>{item.main.temp_min}°C</p>
+                                <p className="font-medium">Min/Max Temp:</p>
+                                <p>
+                                    {item.main.temp_min.toFixed(1)}°C /{" "}
+                                    {item.main.temp_max.toFixed(1)}°C
+                                </p>
                             </div>
-                            <div className="max-smx:flex max-smx:justify-between">
+                            {/* <div className="max-smx:flex max-smx:justify-between">
                                 <p className="font-medium">Max Temp:</p>
                                 <p>{item.main.temp_max}°C</p>
-                            </div>
+                            </div> */}
                             <div className="max-smx:flex max-smx:justify-between">
                                 <p className="font-medium">Pressure:</p>
                                 <p>{item.main.pressure} hPa</p>

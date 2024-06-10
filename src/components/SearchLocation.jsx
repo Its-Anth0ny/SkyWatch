@@ -6,6 +6,7 @@ import { WEATHER_API_KEY } from "@/utils/constants";
 import getWeatherData from "@/utils/getWeatherData";
 import { useDispatch } from "react-redux";
 import { pushWeatherData } from "@/redux/weatherDataSlice";
+import { Separator } from "./ui/separator";
 
 const SearchLocation = () => {
     const [location, setLocation] = useState("");
@@ -41,16 +42,17 @@ const SearchLocation = () => {
 
     return (
         <div>
+            <Separator />
             <form
                 onSubmit={getLocationInfo}
-                className="flex items-center justify-center space-x-6 max-md:flex-col max-md:space-x-0 max-md:space-y-4 max-md:px-20 max-smx:px-10"
+                className="flex items-center justify-center py-6 space-x-6 max-md:flex-col max-md:space-x-0 max-md:space-y-4 max-md:px-20 max-smx:px-10"
             >
                 <Input
                     id="location"
                     value={location}
                     placeholder="Search City..."
                     onChange={(e) => setLocation(e.target.value)}
-                    className="w-[350px] h-[50px] rounded-3xl max-md:w-full max-md:h-[40px] px-4"
+                    className="w-[350px] h-[50px] rounded-3xl max-md:w-full max-md:h-[40px] px-4 border border-blue-900"
                     required
                 />
                 <Button
@@ -66,7 +68,12 @@ const SearchLocation = () => {
                     />
                 </Button>
             </form>
-            {error && <div className="mt-2 text-red-500">{error}</div>}
+            <Separator />
+            {error && (
+                <div className="mt-2 text-center text-red-500">
+                    Not able to fetch weather data. Please try again.
+                </div>
+            )}
         </div>
     );
 };

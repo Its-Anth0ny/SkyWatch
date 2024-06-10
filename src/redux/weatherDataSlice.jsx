@@ -7,7 +7,7 @@ const weatherDataSlice = createSlice({
     },
     reducers: {
         pushWeatherData: (state, action) => {
-            state.data.push(action.payload);
+            state.data.unshift(action.payload);
         },
         // deleteWeatherData: (state, action) => {
         //     state.data = state.data.filter(

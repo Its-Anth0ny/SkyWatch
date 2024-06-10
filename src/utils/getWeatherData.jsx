@@ -3,7 +3,7 @@ import { WEATHER_API_KEY } from "@/utils/constants";
 async function getWeatherData({ lat, long }) {
     try {
         // console.log(
-        //     `Your current location is Latitude: ${lat}, Longitude: ${long}`
+        //     `Latitude: ${lat}, Longitude: ${long}`
         // );
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=metric&cnt=1&appid=${WEATHER_API_KEY}`
