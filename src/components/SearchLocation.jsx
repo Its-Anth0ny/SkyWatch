@@ -48,6 +48,7 @@ const SearchLocation = () => {
                 <Input
                     id="location"
                     value={location}
+                    placeholder="Search City..."
                     onChange={(e) => setLocation(e.target.value)}
                     className="w-[350px] h-[50px] rounded-3xl max-md:w-full max-md:h-[40px] px-4"
                     required
