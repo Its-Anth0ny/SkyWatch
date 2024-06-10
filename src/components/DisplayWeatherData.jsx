@@ -20,7 +20,7 @@ const DisplayWeatherData = () => {
                 <Card key={item.city.id} className="rounded-lg shadow-lg">
                     <CardHeader className="p-4 rounded-t-lg">
                         <CardTitle className="text-xl font-semibold">
-                            {item.city.name}
+                            {item.location}
                         </CardTitle>
                         <p className="text-gray-600 max-smx:text-sm">
                             Date: {new Date().toLocaleDateString()}, Time:{" "}

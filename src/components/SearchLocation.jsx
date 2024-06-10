@@ -21,14 +21,16 @@ const SearchLocation = () => {
             const response = await fetch(
                 `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${WEATHER_API_KEY}`
             );
-            if (!response.ok) {
+            const locationData = await response.json();
+            if (!response.ok || locationData.length === 0) {
                 throw new Error("Location not found");
             }
-            const locationData = await response.json();
+            // console.log(locationData);
             const weatherData = await getWeatherData({
                 lat: locationData[0].lat,
                 long: locationData[0].lon,
             });
+            weatherData.location = locationData[0].name;
             // console.log(weatherData);
             dispatch(pushWeatherData(weatherData));
             setLoading(false);
